@@ -1,0 +1,42 @@
+.page {
+  border: 2px dashed red;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin: 24px;
+  padding-bottom: 16px;
+}
+
+.navWrapper {
+  display: flex;
+  height: 56px;
+  align-items: center;
+  border-bottom: 1px solid #7c3aed;
+}
+
+.navContent {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 0 8px;
+  width: 100%;
+}
+
+.navContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navBrand {
+  font-weight: bold;
+}
+
+.container {
+  max-width: 768px;
+  padding: 0 8px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+  gap: 16px;
+}
+
+.productList {
+  padding-top: 16px;
+}
