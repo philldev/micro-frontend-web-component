@@ -8,9 +8,11 @@ module.exports = {
     productdetail: "/dist/productdetail",
     productlist: "/dist/productlist",
     api: "/dist/api",
+    sveltetest: "/dist/sveltetest",
   },
   plugins: [
     /* ... */
+    "@snowpack/plugin-svelte",
   ],
   routes: [
     /* Enable an SPA Fallback in development: */

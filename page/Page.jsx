@@ -15,6 +15,7 @@ function Page() {
       <div className={styles.container}>
         <div className="">
           <product-detail-component></product-detail-component>
+          <component-svelte></component-svelte>
         </div>
         <div className={styles.productList}>
           <productlist-component></productlist-component>
