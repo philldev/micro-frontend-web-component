@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { selectProductEvent } from "../api";
 import styles from "./product-list.module.css";
 import { render, unmountComponentAtNode } from "react-dom";
 
@@ -39,7 +38,12 @@ function ProductList() {
               "product",
               `?selected_product=${item.id}`
             );
-            e.target.dispatchEvent(selectProductEvent);
+            e.target.dispatchEvent(
+              new CustomEvent("select:product", {
+                bubbles: true,
+                detail: item,
+              })
+            );
             setSelected(item.id);
           }}
           key={item.id}

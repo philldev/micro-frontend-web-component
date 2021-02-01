@@ -1,4 +1,3 @@
-import { elements } from "../api";
 import ProductListApp from "./ProductList";
 
 class WebComponentProductList extends HTMLElement {
@@ -19,4 +18,4 @@ class WebComponentProductList extends HTMLElement {
   }
 }
 
-customElements.define(elements.productlist, WebComponentProductList);
+customElements.define("team-product-list-component", WebComponentProductList);

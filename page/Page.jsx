@@ -9,16 +9,15 @@ function Page() {
       <nav className={styles.navWrapper}>
         <div className={styles.navContent}>
           <div className={styles.navBrand}>React + Web Component Store</div>
-          <minicart-component></minicart-component>
+          <team-cart-minicart-component></team-cart-minicart-component>
         </div>
       </nav>
       <div className={styles.container}>
         <div className="">
-          <product-detail-component></product-detail-component>
-          <component-svelte></component-svelte>
+          <team-product-detail-component></team-product-detail-component>
         </div>
         <div className={styles.productList}>
-          <productlist-component></productlist-component>
+          <team-product-list-component></team-product-list-component>
         </div>
       </div>
     </div>
