@@ -2,21 +2,36 @@ import React, { useRef, useState, useEffect } from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import styles from "./minicart.module.css";
 
-function Minicart({ id, count }) {
+function Minicart() {
   const [cartItems, setCartItems] = useState([]);
-  const ref = useRef(null);
-
+  const addToCart = (e) => {
+    const product = e.detail.product;
+    if (product) {
+      setCartItems((prev) => {
+        if (prev.find((item) => item.id === product.id)) {
+          return prev.map((item) => {
+            if (item.id === product.id) {
+              return {
+                ...product,
+                qty: item.qty + 1,
+              };
+            } else {
+              return item;
+            }
+          });
+        } else {
+          return [...prev, { ...product, qty: 1 }];
+        }
+      });
+    }
+  };
+  console.log(cartItems);
   useEffect(() => {
-    window.addEventListener("add:to:cart", (e) => {
-      if (e.detail.product) {
-        setCartItems((prev) => [...prev, e.detail.product]);
-      }
-    });
-    return () => window.removeEventListener("add:to:cart");
+    window.addEventListener("add:to:cart", addToCart);
+    return () => window.removeEventListener("add:to:cart", addToCart);
   }, []);
-
   return (
-    <div ref={ref} className={styles.cart}>
+    <div className={styles.cart}>
       <span className={styles.cartCount}>{cartItems.length}</span>
       <CartIcon />
       <CartContent cartItems={cartItems} />
@@ -53,6 +68,7 @@ const CartContent = ({ cartItems = [] }) => {
             <div className={styles.cartContentInfo}>
               <div className={styles.cartContentTitle}>{item.title}</div>
               <div className={styles.cartContentPrice}>$ {item.price}</div>
+              <div className={styles.cartContentPrice}>qty : {item.qty}</div>
             </div>
           </div>
         ))

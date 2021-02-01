@@ -3,7 +3,6 @@ import { render, unmountComponentAtNode } from "react-dom";
 import styles from "./add-to-cart.module.css";
 
 function AddToCart({ product }) {
-  console.log(product);
   return (
     <div className={styles.addToCart}>
       <button
