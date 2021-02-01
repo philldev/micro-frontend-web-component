@@ -1,7 +1,6 @@
 import { render, unmountComponentAtNode } from "react-dom";
 import React, { useRef } from "react";
 import styles from "./page.module.css";
-import { elements } from "../api";
 
 function Page() {
   return (

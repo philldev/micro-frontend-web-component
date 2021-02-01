@@ -70,7 +70,7 @@
   width: 100%;
   display: -webkit-box;
   overflow: hidden;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   margin-bottom: 8px;
 }
