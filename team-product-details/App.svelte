@@ -1,0 +1,70 @@
+<script>
+  import { onDestroy } from "svelte";
+
+  let product = {
+    category: "men clothing",
+    description:
+      "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+    id: 1,
+    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    price: 109.95,
+    title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+  };
+
+  const selectProduct = (e) => {
+    product = e.detail;
+  };
+
+  window.addEventListener("select:product", selectProduct, {
+    capture: true,
+    once: false,
+  });
+
+  onDestroy(() => {
+    window.removeEventListener("select:product", selectProduct);
+  });
+</script>
+
+<div class="product-detail">
+  {#if product}
+    <div class="product-detail-image">
+      <img src={product.image} alt="" />
+    </div>
+    <div class="product-detail-title">{product.title}</div>
+    <div class="product-detail-desc">{product.description}</div>
+    <div class="product-detail-price">$ {product.price}</div>
+    <team-cart-addtocart-component product={JSON.stringify(product)} />
+  {:else}
+    <div class="">Please Select a Product!</div>
+  {/if}
+</div>
+
+<style>
+  .product-detail {
+    margin-top: 16px;
+    min-height: 500px;
+  }
+  .product-detail-image {
+    height: 350px;
+    margin-bottom: 16px;
+  }
+  .product-detail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .product-detail-title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+  .product-detail-desc {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  .product-detail-price {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+</style>
