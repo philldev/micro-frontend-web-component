@@ -1,24 +1,34 @@
-# New Project
+# Micro FE Web Components
 
-> ✨ Bootstrapped with Create Snowpack App (CSA).
+## Documentation
 
-## Available Scripts
+> This is an experimental implementation of microfrontend using web component.
 
-### npm start
+### Main Project structures
 
-Runs the app in the development mode.
-Open http://localhost:8080 to view it in the browser.
+    |_public
+      |_ index.html // bootstrapping the app
+    |_page
+      |_ index.js // React App
+    |_productdetail
+      |_ index.js // Svelte App
+    |_productlist
+      |_ index.js // React App
+    |_cart
+      |_ index.js // React App
 
-The page will reload if you make edits.
-You will also see any lint errors in the console.
+### Team Project structures
 
-### npm run build
+    |_team
+      |_ index.js // each team needs to bootstrap their own app using Web Component Custom element API
 
-Builds a static copy of your site to the `build/` folder.
-Your app is ready to be deployed!
+https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements
 
-**For the best production performance:** Add a build bundler plugin like [@snowpack/plugin-webpack](https://github.com/snowpackjs/snowpack/tree/main/plugins/plugin-webpack) or [snowpack-plugin-rollup-bundle](https://github.com/ParamagicDev/snowpack-plugin-rollup-bundle) to your `snowpack.config.json` config file.
+### Styling
 
-### Q: What about Eject?
+- Global styling
 
-No eject needed! Snowpack guarantees zero lock-in, and CSA strives for the same.
+  - for global styling like fonts, css var, resets, normalize and etc. can be imported either in container of the app eg. team page or can be initialize in the public index.html
+
+- Team styling
+  - to prevent css specificity each team is recommended to use styling framework or tools that provides class prefix for react and for svelte its automatically enabled
