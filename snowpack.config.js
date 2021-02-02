@@ -11,6 +11,7 @@ module.exports = {
   plugins: [
     /* ... */
     "@snowpack/plugin-svelte",
+    ["@snowpack/plugin-webpack"],
   ],
   routes: [
     /* Enable an SPA Fallback in development: */
