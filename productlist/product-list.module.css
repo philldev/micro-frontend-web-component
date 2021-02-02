@@ -1,10 +1,10 @@
-.productList {
+.product-list {
   display: grid;
   flex-direction: column-reverse;
   gap: 16px;
   border: 2px dashed blue;
 }
-.productCard {
+.product-card {
   display: grid;
   padding: 8px;
   background-color: white;
@@ -13,29 +13,29 @@
   border-radius: 4px;
   border-bottom: 4px solid transparent;
 }
-.productCard.active {
+.product-card.active {
   border-bottom: 4px solid #7c3aed;
 }
 
-.productImage {
+.product-image {
   padding: 8px;
 }
-.productImage img {
+.product-image img {
   width: 100%;
 }
-.productTitle {
+.product-title {
   padding-top: 8px;
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 16px;
 }
-.productPrice {
+.product-price {
   font-size: 18px;
   font-weight: bold;
 }
 
-.productTitle,
-.productPrice {
+.product-title,
+.product-price {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */

@@ -1,10 +1,10 @@
-.addToCart {
+.add-to-cart {
   padding: 4px;
   border: 2px dashed orange;
   display: inline-flex;
 }
 
-.addToCartBtn {
+.addtocart-btn {
   font-weight: 700;
   background-color: #7c3aed;
   color: #fff;

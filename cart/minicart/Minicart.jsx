@@ -25,14 +25,15 @@ function Minicart() {
       });
     }
   };
-  console.log(cartItems);
+
   useEffect(() => {
     window.addEventListener("add:to:cart", addToCart);
     return () => window.removeEventListener("add:to:cart", addToCart);
   }, []);
+
   return (
     <div className={styles.cart}>
-      <span className={styles.cartCount}>{cartItems.length}</span>
+      <span className={styles["cart-count"]}>{cartItems.length}</span>
       <CartIcon />
       <CartContent cartItems={cartItems} />
     </div>
@@ -45,7 +46,7 @@ const CartIcon = () => (
     fill="none"
     viewBox="0 0 24 24"
     stroke="currentColor"
-    className={styles.cartIcon}
+    className={styles["cart-icon"]}
   >
     <path
       strokeLinecap="round"
@@ -58,25 +59,27 @@ const CartIcon = () => (
 
 const CartContent = ({ cartItems = [] }) => {
   return (
-    <div className={styles.cartContent}>
+    <div className={styles["cart-content"]}>
       {cartItems.length ? (
         cartItems.map((item) => (
-          <div key={item.id} className={styles.cartContentItem}>
-            <div className={styles.cartContentImg}>
+          <div key={item.id} className={styles["cart-content-item"]}>
+            <div className={styles["cart-content-img"]}>
               <img src={item.image} alt="" />
             </div>
-            <div className={styles.cartContentInfo}>
-              <div className={styles.cartContentTitle}>{item.title}</div>
-              <div className={styles.cartContentPrice}>$ {item.price}</div>
-              <div className={styles.cartContentPrice}>qty : {item.qty}</div>
+            <div className={styles["cart-content-info"]}>
+              <div className={styles["cart-content-title"]}>{item.title}</div>
+              <div className={styles["cart-content-price"]}>$ {item.price}</div>
+              <div className={styles["cart-content-price"]}>
+                qty : {item.qty}
+              </div>
             </div>
           </div>
         ))
       ) : (
-        <div className={styles.noProduct}>No product in Cart</div>
+        <div className={styles["no-product"]}>No product in Cart</div>
       )}
       <button
-        className={styles.btnCheckout}
+        className={styles["btn-checkout"]}
         disabled={!cartItems.length ? true : false}
       >
         Go to checkout

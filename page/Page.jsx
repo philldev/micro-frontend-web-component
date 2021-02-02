@@ -1,13 +1,14 @@
+import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
-import React, { useRef } from "react";
+import "./global.css";
 import styles from "./page.module.css";
 
 function Page() {
   return (
     <div className={styles.page}>
-      <nav className={styles.navWrapper}>
-        <div className={styles.navContent}>
-          <div className={styles.navBrand}>React + Web Component Store</div>
+      <nav className={styles["nav-wrapper"]}>
+        <div className={styles["nav-content"]}>
+          <div className={styles["nav-brand"]}>React + Web Component Store</div>
           <team-cart-minicart-component></team-cart-minicart-component>
         </div>
       </nav>
@@ -15,7 +16,7 @@ function Page() {
         <div className="">
           <team-product-detail-component></team-product-detail-component>
         </div>
-        <div className={styles.productList}>
+        <div className={styles["product-list"]}>
           <team-product-list-component></team-product-list-component>
         </div>
       </div>

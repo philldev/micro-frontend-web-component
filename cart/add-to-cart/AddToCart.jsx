@@ -4,7 +4,7 @@ import styles from "./add-to-cart.module.css";
 
 function AddToCart({ product }) {
   return (
-    <div className={styles.addToCart}>
+    <div className={styles["add-to-cart"]}>
       <button
         onClick={(e) => {
           e.target.dispatchEvent(
@@ -16,7 +16,7 @@ function AddToCart({ product }) {
             })
           );
         }}
-        className={styles.addToCartBtn}
+        className={styles["addtocart-btn"]}
         type="submit"
       >
         Add To cart
