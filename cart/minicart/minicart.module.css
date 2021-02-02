@@ -42,7 +42,7 @@
   display: grid;
 }
 
-.cart-contentItem {
+.cart-content-item {
   border-bottom: 1px solid #7c3aed;
   display: grid;
   grid-template-columns: 25% 75%;
