@@ -68,10 +68,8 @@ const CartContent = ({ cartItems = [] }) => {
             </div>
             <div className={styles["cart-content-info"]}>
               <div className={styles["cart-content-title"]}>{item.title}</div>
+              <div className={styles["cart-content-qty"]}>qty : {item.qty}</div>
               <div className={styles["cart-content-price"]}>$ {item.price}</div>
-              <div className={styles["cart-content-price"]}>
-                qty : {item.qty}
-              </div>
             </div>
           </div>
         ))

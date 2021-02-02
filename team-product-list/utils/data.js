@@ -1,73 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { render, unmountComponentAtNode } from "react-dom";
-import styles from "./product-list.module.css";
-
-function ProductList() {
-  const [products, setProducts] = useState(data);
-  const [loading, setLoading] = useState(false);
-  const [selected, setSelected] = useState(1);
-  // useEffect(() => {
-  //   let fetchProduct = async () => {
-  //     setLoading(true);
-  //     try {
-  //       const response = await fetch(
-  //         "https://fakestoreapi.com/products?limit=5"
-  //       );
-  //       const data = await response.json();
-  //       setProducts(data);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   fetchProduct().finally(() => setLoading(false));
-  //   return () => {};
-  // }, []);
-
-  if (loading) {
-    return <div className={styles["product-list"]}>...loading</div>;
-  }
-  return (
-    <div className={styles["product-list"]}>
-      {products.map((item) => (
-        <div
-          onClick={(e) => {
-            window.history.pushState(
-              { product: item.id },
-              "product",
-              `?selected_product=${item.id}`
-            );
-            e.target.dispatchEvent(
-              new CustomEvent("select:product", {
-                bubbles: true,
-                detail: item,
-              })
-            );
-            setSelected(item.id);
-          }}
-          key={item.id}
-          className={`${styles["product-card"]} ${
-            item.id === selected ? styles.active : ""
-          }`}
-        >
-          <div className={styles["product-image"]}>
-            <img src={item.image} alt="" />
-          </div>
-          <div className="">
-            <div className={styles["product-title"]}>{item.title}</div>
-            <div className={styles["product-price"]}>$ {item.price}</div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-const ProductListApp = {
-  render: (root, props) => render(<ProductList {...props} />, root),
-  unMount: (root) => unmountComponentAtNode(root),
-};
-
-const data = [
+export default [
   {
     id: 1,
     title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -116,5 +47,3 @@ const data = [
     image: "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg",
   },
 ];
-
-export default ProductListApp;

@@ -3,10 +3,10 @@ module.exports = {
   mount: {
     // directory name: 'build directory'
     public: "/",
-    page: "/dist/page",
-    cart: "/dist/cart",
-    productdetail: "/dist/productdetail",
-    productlist: "/dist/productlist",
+    "team-page": "/dist/page",
+    "team-cart": "/dist/cart",
+    "team-product-detail": "/dist/product-detail",
+    "team-product-list": "/dist/product-list",
   },
   plugins: [
     /* ... */
