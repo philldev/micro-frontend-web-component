@@ -5,7 +5,7 @@ module.exports = {
     public: "/",
     "team-page": "/dist/page",
     "team-cart": "/dist/cart",
-    "team-product-detail": "/dist/product-detail",
+    "team-product-details": "/dist/product-detail",
     "team-product-list": "/dist/product-list",
   },
   plugins: [
