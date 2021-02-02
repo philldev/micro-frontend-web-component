@@ -5,26 +5,26 @@
   padding-bottom: 16px;
 }
 
-.navWrapper {
+.nav-wrapper {
   display: flex;
   height: 56px;
   align-items: center;
   border-bottom: 1px solid #7c3aed;
 }
 
-.navContent {
+.nav-content {
   max-width: 768px;
   margin: 0 auto;
   padding: 0 8px;
   width: 100%;
 }
 
-.navContent {
+.nav-content {
   display: flex;
   justify-content: space-between;
 }
 
-.navBrand {
+.nav-brand {
   font-weight: bold;
 }
 
@@ -37,6 +37,6 @@
   gap: 16px;
 }
 
-.productList {
+.product-list {
   padding-top: 16px;
 }

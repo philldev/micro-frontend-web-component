@@ -24,11 +24,10 @@ function ProductList() {
   // }, []);
 
   if (loading) {
-    return <div className={styles.productList}>...loading</div>;
+    return <div className={styles["product-list"]}>...loading</div>;
   }
-
   return (
-    <div className={styles.productList}>
+    <div className={styles["product-list"]}>
       {products.map((item) => (
         <div
           onClick={(e) => {
@@ -46,16 +45,16 @@ function ProductList() {
             setSelected(item.id);
           }}
           key={item.id}
-          className={`${styles.productCard} ${
+          className={`${styles["product-card"]} ${
             item.id === selected ? styles.active : ""
           }`}
         >
-          <div className={styles.productImage}>
+          <div className={styles["product-image"]}>
             <img src={item.image} alt="" />
           </div>
           <div className="">
-            <div className={styles.productTitle}>{item.title}</div>
-            <div className={styles.productPrice}>$ {item.price}</div>
+            <div className={styles["product-title"]}>{item.title}</div>
+            <div className={styles["product-price"]}>$ {item.price}</div>
           </div>
         </div>
       ))}

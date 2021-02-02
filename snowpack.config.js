@@ -7,7 +7,6 @@ module.exports = {
     cart: "/dist/cart",
     productdetail: "/dist/productdetail",
     productlist: "/dist/productlist",
-    sveltetest: "/dist/sveltetest",
   },
   plugins: [
     /* ... */
