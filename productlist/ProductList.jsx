@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import styles from "./product-list.module.css";
 import { render, unmountComponentAtNode } from "react-dom";
+import styles from "./product-list.module.css";
 
 function ProductList() {
   const [products, setProducts] = useState(data);
