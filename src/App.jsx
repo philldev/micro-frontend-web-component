@@ -1,39 +1,52 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import styles from './app.module.css';
+import { Link, Route, Switch } from 'react-router-dom';
 
-function App() {
-  // Create the count state.
-  const [count, setCount] = useState(0);
-  // Create the counter (+1 every second).
-  useEffect(() => {
-    const timer = setTimeout(() => setCount(count + 1), 1000);
-    return () => clearTimeout(timer);
-  }, [count, setCount]);
-  // Return the App component.
+import ProductList from './pages/ProductList';
+import Cart from './pages/Cart';
+import Product from './pages/Product';
+import MicroFrontend from './MicroFrontend';
+
+import appConfig from './app.config';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <p>
-          Page has been open for <code>{count}</code> seconds.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
+    <div className={styles.app}>
+      <header className={styles.header}>
+        <nav className={styles.navbar}>
+          <ul>
+            <li>
+              <Link to="/">Products</Link>
+            </li>
+            <li>
+              <Link to="/cart">
+                <MicroFrontend
+                  url={`${appConfig.teamCheckoutUrl}/dist/minicart/index.js`}
+                  render={<team-checkout-minicart></team-checkout-minicart>}
+                />
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </header>
+
+      <main className={styles.main}>
+        <Switch>
+          <Route exact path="/">
+            <ProductList />
+          </Route>
+          <Route exact path="/cart">
+            <Cart />
+          </Route>
+          <Route exact path="/product/:id">
+            <Product />
+          </Route>
+        </Switch>
+      </main>
+
+      <footer className={styles.footer}></footer>
     </div>
   );
-}
+};
 
 export default App;
