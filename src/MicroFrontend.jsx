@@ -25,9 +25,9 @@ const MicroFrontend = ({ url, render }) => {
 
     return () => document.getElementById(url).remove();
   }, []);
-  if (loading) return <p>Loading...</p>;
-
-  return render;
+  if (loading && render) return <p>Loading...</p>;
+  if (render) return render;
+  else return null;
 };
 
 export default MicroFrontend;
