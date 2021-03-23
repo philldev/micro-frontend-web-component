@@ -59,13 +59,21 @@ This is the actuall Micro-frontend itself it'll handle all the state, styling an
 
 ![alt text](./microfedark.png)
 
-## Web Component
+## Custom Element
+
+One of the key features of the Web Components standard is the ability to create custom elements that encapsulate your functionality on an HTML page, rather than having to make do with a long, nested batch of elements that together provide a custom page feature. - MDN
+
+![alt text](./webcomponent.png)
 
 When the web component custom elements appear on the dom the connectedCallback method gets called and render the app and when the custom element gets removed from the dom the disconnectedCallback method gets called and the app gets unmounted from the node.
 
-![alt text](./webcomponent.png)
-the web component custom elements can received attributes and the attributes can be passed to the app like below
-
+these are the basics lifecycle methods of a custom element :
+- connectedCallback()
+  this method is called when the custom element added to the dom, so we can intialize the micro-frontend app inside this method
+- disconnectedCallback()
+  this method is called when the custom element is about to be removed from the dom, this is very usefull to unMount our app and clean up all async functions from the micro-frontend app.
+- The attributeChangedCallback()
+  callback is run whenever one of the element's attributes is changed in some way. when we passed an attribute to the custom element we can listen whenever its value changes, and then we can render the necessary state. 
 ```jsx
 <team-checkout-addtocart product={JSON.stringify(product)} />
 ```
@@ -90,6 +98,26 @@ export default class AddToCart extends HTMLElement {
   }
 }
 ```
+
+## Costum Event
+
+When we cannot pass the data directly to the custom element attributes we can use the custom event API
+```js
+// add an appropriate event listener
+cart.addEventListener("add:to:cart", function(e) { process(e.detail) });
+
+// create and dispatch the event
+const event = new CustomEvent("add:to:cart", {
+  detail: {
+    someProduct
+  }
+});
+
+addToCartBtn.addEventListener('click', (e){
+  e.target.dispatchEvent(event)
+})
+```
+
 
 ## Global State
 
@@ -171,6 +199,9 @@ const AddToCartBtn = ({ product }) => {
   );
 };
 ```
+
+## Sharing css between Micro-frontend
+
 
 ## Reference
 
